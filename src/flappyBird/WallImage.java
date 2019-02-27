@@ -12,10 +12,10 @@ public class WallImage {
 	
 	private Random r = new Random();
 	public int X;
-	public int Y = r.nextInt(GamePanel.HEIGHT-400)+200;
+	public int Y = r.nextInt(GamePanel.HEIGHT-400)+200;//max=600,min=200
 	private int width_wall = 60;
-	private int height = GamePanel.HEIGHT-Y;
-	private int gap = 200;
+	private int height = GamePanel.HEIGHT-Y;//800-600=200;
+	private int gap = 150;
 	
 	private BufferedImage img = null;
 	
@@ -35,8 +35,8 @@ public class WallImage {
 	}
 	
 	public void drawWall(Graphics g) {
-		g.drawImage(img, X, Y, null);
-		g.drawImage(img, X, (-GamePanel.HEIGHT)+(Y-gap), null);
+		g.drawImage(img, X, Y, null);//bottom
+		g.drawImage(img, X, (-GamePanel.HEIGHT)+(Y-gap), null);//top = -800+(600-150)
 	}
 
 	
