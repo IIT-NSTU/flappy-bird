@@ -10,7 +10,7 @@ import javax.swing.JPanel;
 public class BirdImage {
 	private BufferedImage img = null;
 	private static int bird_dia = 34; //bird accurate width
-	public static int x = (GamePanel.WIDTH/2)-(bird_dia/2);
+	public static int x = (GamePanel.WIDTH/3)-(bird_dia/2);
 	public static int y = (GamePanel.HEIGHT)/2;
 	
 	private static int speed = 2;
@@ -42,6 +42,10 @@ public class BirdImage {
 		else {
 			reset();
 		}
+	}
+	
+	public void goUpwards() {
+		speed = -17;
 	}
 
 	private void reset() {

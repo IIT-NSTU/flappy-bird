@@ -1,6 +1,10 @@
 package flappyBird;
 
 import java.awt.Graphics;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
 
@@ -22,9 +26,42 @@ public class GamePanel extends JPanel{
 	BirdImage bi = new BirdImage();
 	WallImage wi = new WallImage(GamePanel.WIDTH);
 	WallImage wi2 = new WallImage(GamePanel.WIDTH+(GamePanel.WIDTH/2));
+	//WallImage wi3 = new WallImage(2*GamePanel.WIDTH);
 	
 	public GamePanel() {
 		LoadImage();
+		this.addMouseListener(new MouseAdapter() {
+           public void mousePressed(MouseEvent e) {
+        	   super.mousePressed(e);
+        	   bi.goUpwards();
+           }
+			
+			
+		});
+		
+		/*this.addKeyListener(new KeyListener() {
+			
+		
+
+			@Override
+			public void keyPressed(KeyEvent e) {
+				// TODO Auto-generated method stub
+				//super.keyPressed(e);
+				bi.goUpwards();
+			}
+
+			@Override
+			public void keyReleased(KeyEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void keyTyped(KeyEvent e) {
+				// TODO Auto-generated method stub
+			}
+				
+			});*/
 		
 	}
 
@@ -44,10 +81,14 @@ public class GamePanel extends JPanel{
 		bi.drawBird(g);
 		wi.drawWall(g);
 		wi2.drawWall(g);
+		//wi3.drawWall(g);
 	}
 	
 	public void Move() {
 		bi.birdMovement();
+		wi.wallMovement();
+		wi2.wallMovement();
+		//wi3.wallMovement();
 	}
 	
 }

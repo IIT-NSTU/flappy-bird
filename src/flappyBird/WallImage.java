@@ -16,6 +16,7 @@ public class WallImage {
 	private int width_wall = 60;
 	private int height = GamePanel.HEIGHT-Y;//800-600=200;
 	private int gap = 150;
+	public int speed = -6;
 	
 	private BufferedImage img = null;
 	
@@ -35,10 +36,22 @@ public class WallImage {
 	}
 	
 	public void drawWall(Graphics g) {
-		g.drawImage(img, X, Y, null);//bottom
-		g.drawImage(img, X, (-GamePanel.HEIGHT)+(Y-gap), null);//top = -800+(600-150)
+		g.drawImage(img, X+100, Y, null);//bottom
+		g.drawImage(img, X+100, (-GamePanel.HEIGHT)+(Y-gap), null);//top = -800+(600-150)
+		//g.drawImage(img, X+100, (-GamePanel.HEIGHT)+(Y-gap), null);
 	}
+	
+	
+	public void wallMovement() {
+		X+=speed;
+		if(X<=-width_wall) {
+			X=GamePanel.WIDTH;
+			Y=r.nextInt(GamePanel.HEIGHT-400)+200;
+			height = GamePanel.HEIGHT-Y;
+		}
+	}
+}
 
 	
 
-}
+
