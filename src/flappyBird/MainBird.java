@@ -35,10 +35,21 @@ public class MainBird {
 		MenuPanel mp = new MenuPanel();
 	    mp.setLayout(new GridBagLayout());
 	    JButton btn = new JButton("PLAY");
+	    JButton stg = new JButton("Settings");
+	    JButton Hlp = new JButton("Help");
 	    btn.setBackground(Color.blue);
 	    btn.setForeground(Color.WHITE);
+	    stg.setBackground(Color.blue);
+	    stg.setForeground(Color.WHITE);
+	   Hlp.setBackground(Color.blue);
+	   Hlp.setForeground(Color.WHITE);
+	  
 		mp.add(btn);
+		mp.add(stg);
+		mp.add(Hlp);
+		
 		GamePanel gp = new GamePanel();
+		
 		//Timer
 		timer = new Timer(20,new ActionListener() {
 
@@ -64,6 +75,34 @@ public class MainBird {
 			}
 
 		});
+		stg.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				frame.remove(mp);
+				new Settings();
+				
+				
+			}
+			
+		});
+		
+		Hlp.addActionListener(new ActionListener()
+				{
+
+					@Override
+					public void actionPerformed(ActionEvent arg0) {
+						// TODO Auto-generated method stub
+						
+						frame.remove(mp);
+						new Help();
+					}
+			
+			
+				});
+		
+		
 		timer.start();
 		
 		
