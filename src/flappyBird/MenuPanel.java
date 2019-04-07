@@ -53,7 +53,7 @@ public class MenuPanel extends JPanel{
 			//img = new ImageIcon(getClass().getResource("Menupanel.jpg"));
 			//this.setIconImage(img.getImage());
 			
-            img = ImageIO.read(new File("C:\\Users\\Hp\\Desktop\\java\\Flappy Bird\\Images\\Menupanel.jpg"));
+            img = ImageIO.read(new File("G:\\Project\\Flappy Bird\\flappy-bird2\\Images\\pic.png"));
 			//imgLabel = new JLabel(img);
 			//imgLabel.setBounds(0,0,img.getIconWidth(),img.getIconHeight());
           }
